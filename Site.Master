@@ -4,7 +4,7 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
@@ -13,7 +13,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -40,18 +40,34 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                <%--LOGO DE DIGITALHIVE--%>
+                <a class="navbar-brand" runat="server" href="~/">
+                    <img src="https://previews.dropbox.com/p/thumb/ACTqMPgB8YGjgAMRGm-9uZKzQ-9pQty-R2PSsHD9XH-Htoh62fpgquDNzkqii2nxYWTR5DcIVOx28KR08Fi9YoIMJ7BDHYV9f8UxB-O8PXw8JTQi3oca2ZhBGWxZ4YHir7rqTjSlw9yFhj4ZnTe6f2xxqIr8LD5zieIb7q2sr5wtNiNojlPiJhH3syUrE8GDYMY2-z57ytiCWnt5LdYCM4yJFW1szdY5_jbOv79BlvphJR301n_pvMC4YwhcDU1yrVcZfDqMGfs8OlRclfSEBLOSvMK9Q-RGd-0isa47-DQl_ivKYdcu0hDrWt6IyRmfffWPvvelsIwAhkIU-tDxuZDB/p.png" class="img-fluid" alt="..." style="max-width: 100px; height: auto;">
+                </a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <%--CUADRO DE BUSQUEDA--%>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar articulos..." aria-label="Search">
+                    <button class="btn" type="submit" style="background-color: transparent; border: none; cursor: pointer;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        </svg>
+                    </button>
+                </form>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <%--<ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contacto</a></li>
-                    </ul>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/about">acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/contact">contacto</a></li>
+                    </ul>--%>
                 </div>
+                <%--LOGO CARRITO DE COMPRAS--%>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-cart2" viewBox="0 0 16 16">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+                </svg>
             </div>
         </nav>
         <div class="container body-content">
@@ -59,7 +75,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <p>&copy; <%: DateTime.Now.Year %> DigitalHive - Todos los derechos reservados.</p>
             </footer>
         </div>
     </form>
