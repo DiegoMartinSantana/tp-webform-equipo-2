@@ -8,7 +8,7 @@ namespace Negocio
 {
     public class ImagenGestion
     {
-
+      
         public void Add(Imagen img)
         {
             var acceso = new AccesoBd();
@@ -34,6 +34,39 @@ namespace Negocio
 
 
         }
+        public List<Imagen> Listado()
+        {
+            var list = new List<Imagen>();
+            var acceso = new AccesoBd();
+            try
+            {
+                acceso.setQuery("SELECT Id,IdArticulo,ImagenUrl FROM Imagenes");
+
+                acceso.ejecutarLectura();
+
+                while (acceso.Lector.Read())
+                {
+                    var aux = new Imagen();
+                    aux.Id = (int)acceso.Lector["Id"]; ;
+                    aux.IdArticulo = (int)acceso.Lector["IdArticulo"];
+                    aux.UrlImagen = (string)acceso.Lector["ImagenUrl"];
+                    list.Add(aux);
+
+                }
+                return list;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                acceso.cerrarConexion();
+            }
+        }
+
         public List<Imagen> ListByIdArticulo(int idart)
         {
             var list = new List<Imagen>();
