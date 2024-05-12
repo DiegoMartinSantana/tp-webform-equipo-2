@@ -1,0 +1,26 @@
+﻿:root {
+    --aquamarine: #00e4b5ff;
+    --electric-indigo: #7200faff;
+    --raisin-black: #1c1b1eff;
+    --white: #ffffffff;
+    --platinum: #e2e3e4ff;
+}
+
+body {
+    background: var(--white);
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+header {
+    background: var(--raisin-black);
+    height: auto;
+}
+
+.btn-outline-success {
+    border-color: transparent; /* Le saco el borde verde al boton de buscar */
+}
+
+footer {
+    text-align: center;
+    font-weight: bold;
+}
