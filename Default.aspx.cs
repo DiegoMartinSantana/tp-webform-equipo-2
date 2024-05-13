@@ -1,12 +1,12 @@
-﻿using ABMProductos;
-using Microsoft.Ajax.Utilities;
-using Negocio;
+﻿using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
+using Negocio;
 namespace TPWebForm_equipo_2
 {
     public partial class _Default : Page
