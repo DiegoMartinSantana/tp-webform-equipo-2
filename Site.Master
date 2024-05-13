@@ -49,8 +49,8 @@
                 <%--------------------LOGO A LA IZQUIERDA--------------------%>
 
                 <div class="container col-md-1 d-flex justify-content-center">
-                    <a class="navbar-brand d-flex justify-content-center" href="#">
-                        <img src="https://i.ibb.co/PrbMRXH/digital-hive-logo.png" alt="DigitalHive" height="70">
+                    <a class="navbar-brand d-flex justify-content-center" href="Default.Aspx">
+                        <img src="https://i.ibb.co/PrbMRXH/digital-hive-logo.png" alt="DigitalHive"  height="70">
                     </a>
                 </div>
                 <div class="col-md-2 d-flex justify-content-center"></div>
@@ -58,7 +58,7 @@
                 <%--------------------BUSCADOR--------------------%>
 
                 <div class="container col-md-6 d-flex justify-content-center">
-                    <form class="d-flex" role="search">
+                    <div class="d-flex" role="search">
                         <div class="input-group d-flex justify-content-center">
                             <input class="form-control" type="search" placeholder="Buscar artículos" aria-label="Search">
                             <button class="btn btn-outline-success bg-white" type="submit">
@@ -67,9 +67,9 @@
                                 </svg>
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
-
+<%--  --%>
 
                 <%--------------------CARRITO A LA DERECHA--------------------%>
 

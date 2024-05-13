@@ -77,6 +77,7 @@ namespace Negocio
                 acceso.setParametro("@IdArt", idart);
 
                 acceso.ejecutarLectura();
+               
 
                 while (acceso.Lector.Read())
                 {

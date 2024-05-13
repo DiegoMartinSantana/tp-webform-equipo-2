@@ -9,6 +9,47 @@ namespace Negocio
 {
     public class ArticuloGestion
     {
+        public Articulo Existencia(int Id)
+        {
+            var Acceso = new AccesoBd();
+            try
+            {
+                Acceso.setQuery("SELECT A.ID,A.CODIGO,A.NOMBRE,A.Descripcion,A.IdMarca,M.Descripcion MarcaDesc , A.IdCategoria,C.Descripcion CatDesc ,A.Precio FROM ARTICULOS AS A INNER JOIN MARCAS AS M ON M.Id = A.IdMarca INNER JOIN CATEGORIAS AS C ON C.Id = A.IdCategoria WHERE A.Id = @idProd");
+                Acceso.setParametro("@idProd", Id);
+                Acceso.ejecutarLectura();
+                if(Acceso.Lector.Read())
+                {
+                    var Art = new Articulo();
+                    Art.Id = Id;
+                    Art.Codigo = (string)Acceso.Lector["Codigo"];
+                    Art.Nombre = (string)Acceso.Lector["Nombre"];
+                    Art.Descripcion = (string)Acceso.Lector["Descripcion"];
+                    Art.Marca = new Marca();
+                    Art.Marca.Id = (int)Acceso.Lector["IdMarca"];
+                    Art.Marca.Descripcion = (string)Acceso.Lector["MarcaDesc"];
+                    Art.Categoria = new Categoria();
+                    Art.Categoria.Id = (int)Acceso.Lector["IdCategoria"];
+                    Art.Categoria.Descripcion = (string)Acceso.Lector["CatDesc"];
+                    Art.Precio = (decimal)Acceso.Lector["Precio"];
+                    return Art;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                Acceso.cerrarConexion();
+            }
+
+        }
+
         public void Add(Articulo Art) // Agregar Articulo
         {
             AccesoBd Acceso = new AccesoBd();
