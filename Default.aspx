@@ -3,10 +3,10 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- ADAPTAR ESTO AL CARRITO -->
-    <h5 runat="server" id="elementoscarrito">  </h5> 
+    <h5 runat="server" id="elementoscarrito"></h5>
 
     <%--------------------CAROUSEL--------------------%>
-    
+
     <div id="carouselExample" class="carousel carousel-dark slide ">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -32,26 +32,28 @@
     <%--------------------CARDS DE ARTICULOS--------------------%>
 
     <main>
-         <section class=" row mb-3 row-cols-1 text-center" id="cardsArticulos" style="padding-top:30px" aria-labelledby="gettingStartedTitle">
-       <% if (ArticuloList != null) { //inicio listado cards
-               foreach (var Art in ArticuloList)
-               {  %>
-        
-           
-                <div class="card" style="width: 18rem; margin:10px">
-                    <% string Img = Negocio.Helper.UrlImgFirst(Art.Id); %>
-                    <img src=<%: Img %> class="card-img-top"  alt="Imagen Articulo "/> <!-- SI LA URL NO FUNCA,CARGAR OTRA-->
-                    <div class="card-body">
-                        <h5 class="card-title"><%:Art.Nombre %></h5>
-                        <p class="card-text"><%:Art.Descripcion %></p>
-                        <p class="card-text"> <%:Art.Precio %></p>
-                        <a href="Producto.aspx?Id=<%:Art.Id %>" class="btn btn-primary">Ver</a>
-                    </div>
+        <section class=" row mb-3 row-cols-1 text-center" id="cardsArticulos" style="padding-top: 30px" aria-labelledby="gettingStartedTitle">
+            <% if (ArticuloList != null)
+                { //inicio listado cards
+                    foreach (var Art in ArticuloList)
+                    {  %>
+
+
+            <div class="card" style="width: 18rem; margin: 10px">
+                <% string Img = Negocio.Helper.UrlImgFirst(Art.Id); %>
+                <img src="<%: Img %>" class="card-img-top" alt="Imagen Articulo " />
+                <!-- SI LA URL NO FUNCA,CARGAR OTRA-->
+                <div class="card-body">
+                    <h5 class="card-title"><%:Art.Nombre %></h5>
+                    <p class="card-text"><%:Art.Descripcion %></p>
+                    <p class="card-text"><%:Art.Precio %></p>
+                    <a href="Producto.aspx?Id=<%:Art.Id %>" class="btn btn-primary">Ver</a>
                 </div>
-        
-       <% }
-           }//fin listado cards %>
-            </section>
+            </div>
+
+            <% }
+                }//fin listado cards %>
+        </section>
     </main>
 
 </asp:Content>
