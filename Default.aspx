@@ -2,8 +2,11 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <%--------------------CAROUSEL--------------------%>
+    <!-- ADAPTAR ESTO AL CARRITO -->
+    <h5 runat="server" id="elementoscarrito">  </h5> 
 
+    <%--------------------CAROUSEL--------------------%>
+    
     <div id="carouselExample" class="carousel carousel-dark slide ">
         <div class="carousel-inner">
             <div class="carousel-item active">

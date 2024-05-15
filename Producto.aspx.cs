@@ -9,9 +9,9 @@ using System.Web.UI.WebControls;
 namespace TPWebForm_equipo_2
 {
     public partial class Producto : System.Web.UI.Page
-    { 
+    {
         public List<Imagen> ListUrls { get; set; }
-        public int Indice { get; set; } 
+        public int Indice { get; set; }
         public int IdProd { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +34,7 @@ namespace TPWebForm_equipo_2
             CargarCampos(ArtMostrar);
         }
         #region MetodosMostrarProducto
-      
+
         public void CargarCampos(Articulo artMostrar)
         {
             //llamada a imagen 
@@ -47,14 +47,14 @@ namespace TPWebForm_equipo_2
             PrecioProducto.Text = "$" + artMostrar.Precio.ToString();
 
         }
-        public void CargarImagenes( int id)
+        public void CargarImagenes(int id)
         {
 
-            var ImgGestion = new ImagenGestion();   
+            var ImgGestion = new ImagenGestion();
             ListUrls = ImgGestion.ListByIdArticulo(id);
             if (ListUrls == null)
             {
-                ImgProducto.ImageUrl= "https://ih1.redbubble.net/image.2289245086.4528/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg";
+                ImgProducto.ImageUrl = "https://ih1.redbubble.net/image.2289245086.4528/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg";
             }
             else
             {
@@ -80,7 +80,7 @@ namespace TPWebForm_equipo_2
         protected void BtnPrev_Click(object sender, EventArgs e)
         {
             CargarImagenes(IdProd);
-           if(Indice>0)
+            if (Indice > 0)
             {
                 Indice--;
                 CargarImagen();
@@ -95,8 +95,8 @@ namespace TPWebForm_equipo_2
         {
             CargarImagenes(IdProd);
             if (Indice < (ListUrls.Count() - 1))
-            { 
-                
+            {
+
                 Indice++;
                 CargarImagen();
 
@@ -107,7 +107,18 @@ namespace TPWebForm_equipo_2
         #endregion
         protected void BtnAddCarrito_Click(object sender, EventArgs e)
         {
-            //   Response.Redirect("Default.aspx");
+            if (Session["ListaProductos"] == null)
+            {
+                Session.Add("ListaProductos", new List<Articulo>()); // si no existe ninguna la creo!
+            }
+            var list = (List<Articulo>)Session["ListaProductos"]; //obtiene la lista
+            var ArtGestion = new ArticuloGestion();
+            var Art = ArtGestion.Existencia(IdProd);
+            list.Add(Art); //añade uno nuevo
+
+            Session.Add("ListaProductos", list); // pisa la lista anterior con la nueva que contiene el contenido anterior + el nuevo
+
+            Response.Redirect("Default.Aspx", false);
         }
     }
 }

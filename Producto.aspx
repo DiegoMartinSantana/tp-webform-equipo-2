@@ -6,7 +6,7 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                <asp:Image ID="ImgProducto" CssClass="d-block" runat="server" style="width:40%; height:auto" ImageUrl="https://static3.depositphotos.com/1003671/179/i/450/depositphotos_1792145-stock-photo-mountain-tortoise.jpg" AlternateText="Img Producto" />
+                <asp:Image ID="ImgProducto" CssClass="d-block" runat="server" style="width:40%; height:auto; margin-left:30%" ImageUrl="https://static3.depositphotos.com/1003671/179/i/450/depositphotos_1792145-stock-photo-mountain-tortoise.jpg" AlternateText="Img Producto" />
 
                 <div class="carousel-caption d-none d-md-block">
                 </div>
@@ -15,8 +15,8 @@
         </div>
     <!-- MANEJO DE URLS DEL CARROUSEL DE BOOSTRAPP-->
 
-        <asp:Button runat="server" CssClass="carousel-control-prev carousel-control-prev-icon" ID="BtnPrev" OnClick="BtnPrev_Click" />
-        <asp:Button runat="server" CssClass="carousel-control-next carousel-control-next-icon" ID="BtnNext" OnClick="BtnNext_Click" />
+        <asp:Button runat="server" CssClass="carousel-control-prev carousel-control-prev-icon" ID="BtnPrev" style="margin-left: 20% ; margin-top:20%"  OnClick="BtnPrev_Click" />
+        <asp:Button runat="server" CssClass="carousel-control-next carousel-control-next-icon" ID="BtnNext" style="margin-right: 20% ; margin-top:20%" OnClick="BtnNext_Click" />
     <!-- FIN MANEJO-->
 
     </div>

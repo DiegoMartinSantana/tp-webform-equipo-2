@@ -13,14 +13,18 @@ namespace TPWebForm_equipo_2
     {
         //lista = prop  de esta pagina para accederla en el aspx
         public string ImgAlter { get; set; }
-       public List<Articulo> ArticuloList { get; set; }
+        public List<Articulo> ArticuloList { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             var ArtGestion = new ArticuloGestion();
             ArticuloList = ArtGestion.Listado();
             ImgAlter = "https://img.freepik.com/vector-premium/foto-vacia-sombra-pegada-cinta-adhesiva-ilustracion_87543-3824.jpg";
-
-
+            if (Session["ListaProductos"] != null)
+            {
+                var Lista = (List<Articulo>)Session["ListaProductos"];
+                int cantidadElementos = Lista.Count;
+                elementoscarrito.InnerText = "esto mostrar en el carrito. "+cantidadElementos.ToString();
+              }
         }
 
 
