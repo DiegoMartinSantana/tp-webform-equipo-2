@@ -7,26 +7,46 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
+using System.Collections;
 namespace TPWebForm_equipo_2
 {
-    public partial class _Default : Page
+    public partial class Default : Page
     {
         //lista = prop  de esta pagina para accederla en el aspx
-        public string ImgAlter { get; set; }
         public List<Articulo> ArticuloList { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             var ArtGestion = new ArticuloGestion();
-            ArticuloList = ArtGestion.Listado();
-            ImgAlter = "https://img.freepik.com/vector-premium/foto-vacia-sombra-pegada-cinta-adhesiva-ilustracion_87543-3824.jpg";
-            if (Session["ListaProductos"] != null)
+            if (!IsPostBack)
             {
-                var Lista = (List<Articulo>)Session["ListaProductos"];
-                int cantidadElementos = Lista.Count;
-                elementoscarrito.InnerText = "esto mostrar en el carrito. "+cantidadElementos.ToString();
-              }
+                Session.Add("ListaProductos", ArtGestion.Listado());
+
+                ArticuloList = (List<Articulo>)Session["ListaProductos"];
+            }
+
+            ArticuloList = (List<Articulo>)Session["ListaProductos"];
+
+
         }
 
+        protected void BtnFiltrarByNombre_Click(object sender, EventArgs e)
+        {
+            List<Articulo> Lista = new List<Articulo>();
+            ArticuloGestion ArtGestion = new ArticuloGestion();
 
+            if (TxtFiltro.Text.Length > 3)
+            {
+                Lista = ArtGestion.Listado().FindAll(x => x.Nombre.ToUpper().Contains(TxtFiltro.Text.ToUpper())); // BUSCAMOS SOLO X NOMBRE
+
+            }
+            else
+            {
+                Lista = ArtGestion.Listado();
+            }
+            
+            Session.Add("ListaProductos", Lista);
+            ArticuloList = Lista;
+
+        }
     }
 }
