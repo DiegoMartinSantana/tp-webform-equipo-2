@@ -6,7 +6,7 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                <asp:Image ID="ImgProducto" CssClass="d-block" runat="server" style="width:40%; height:auto; margin-left:30%" ImageUrl="https://static3.depositphotos.com/1003671/179/i/450/depositphotos_1792145-stock-photo-mountain-tortoise.jpg" AlternateText="Img Producto" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCSmLCgkBnv9ZWxBvaGXsaPKm2gv6xnKC6oecU7Gjt2w&s';"/>   
+                <asp:Image ID="ImgProducto" CssClass="d-block" runat="server" style="width:40%; height:auto; margin-left:30%" ImageUrl="https://static3.depositphotos.com/1003671/179/i/450/depositphotos_1792145-stock-photo-mountain-tortoise.jpg" AlternateText="Img Producto" onerror="this.onerror=null;this.src='https://i.ibb.co/bJxT4V0/digital-hive-sin-imagen-1.png';"/>   
 
                 <div class="carousel-caption d-none d-md-block">
                 </div>
