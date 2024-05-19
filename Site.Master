@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TPWebForm_equipo_2.SiteMaster" %>
 
 <!DOCTYPE html>
-
 <html lang="es">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -74,7 +73,7 @@
                         </svg>
                     </a>
                     <%--<asp:Label ID="lblCarrito" runat="server"  CssClass="bg-white p-1 rounded-circle text-black font-weight-bolder" Text="Label"   ></asp:Label>--%>
-                    <asp:Label ID="lblCarrito" runat="server" CssClass="text-black bg-white p-1 rounded-circle font-weight-bold" Text="0" style="font-family: Arial, sans-serif;"></asp:Label>
+                    <asp:Label ID="lblCarrito" runat="server" Text="0"></asp:Label>
                 </div>
 
             </nav>
@@ -96,5 +95,17 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
+
+    <%--------------------ESTILOS--------------------%>
+
+    <style>
+        #lblCarrito {
+            font-weight: bold;
+            background-color: none;
+            color: var(--aquamarine);
+            padding: 0.50rem;
+        }
+    </style>
+
 </body>
 </html>
