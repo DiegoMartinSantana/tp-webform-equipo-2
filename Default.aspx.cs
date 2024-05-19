@@ -34,19 +34,20 @@ namespace TPWebForm_equipo_2
             List<Articulo> Lista = new List<Articulo>();
             ArticuloGestion ArtGestion = new ArticuloGestion();
 
+            // Busqueda por Nombre, Marca o Categoria.
+
             if (TxtFiltro.Text.Length > 3)
             {
-                Lista = ArtGestion.Listado().FindAll(x => x.Nombre.ToUpper().Contains(TxtFiltro.Text.ToUpper())); // BUSCAMOS SOLO X NOMBRE
+                Lista = ArtGestion.Listado().FindAll(x => x.Nombre.ToUpper().Contains(TxtFiltro.Text.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(TxtFiltro.Text.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(TxtFiltro.Text.ToUpper()));
 
             }
             else
             {
                 Lista = ArtGestion.Listado();
             }
-            
+
             Session.Add("ListaProductos", Lista);
             ArticuloList = Lista;
-
         }
     }
 }

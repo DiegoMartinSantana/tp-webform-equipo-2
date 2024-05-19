@@ -50,7 +50,6 @@
             <!-- SI LA URL NO FUNCA,CARGAR OTRA-->
             <div class="card-body">
                 <h4 class="card-title"><%:Art.Nombre %></h4>
-                <p class="card-text"><%:Art.Descripcion %></p>
                 <p class="card-text">$ <%:Art.Precio %></p>
                 <a href="Producto.aspx?Id=<%:Art.Id %>" class="btn btn-primary" id="botonVerDetalles">Ver</a>
             </div>
