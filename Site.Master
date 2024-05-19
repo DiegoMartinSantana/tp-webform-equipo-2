@@ -78,7 +78,7 @@
                         </svg>
                     </a>
                     <%--<asp:Label ID="lblCarrito" runat="server"  CssClass="bg-white p-1 rounded-circle text-black font-weight-bolder" Text="Label"   ></asp:Label>--%>
-                    <asp:Label ID="lblCarrito" runat="server" CssClass="text-black bg-white p-1 rounded-circle font-weight-bold" Text="Label" style="font-family: Arial, sans-serif;"></asp:Label>
+                    <asp:Label ID="lblCarrito" runat="server" CssClass="text-black bg-white p-1 rounded-circle font-weight-bold" Text="0" style="font-family: Arial, sans-serif;"></asp:Label>
                 </div>
             </nav>
         </header>

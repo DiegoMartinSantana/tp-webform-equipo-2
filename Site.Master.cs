@@ -11,9 +11,10 @@ namespace TPWebForm_equipo_2
 {
     public partial class SiteMaster : MasterPage
     {
+        public int cantProductos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblCarrito.Text= cantProductos.ToString();
         }
 
         
