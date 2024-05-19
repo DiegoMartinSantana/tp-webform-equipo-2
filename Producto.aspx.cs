@@ -110,13 +110,20 @@ namespace TPWebForm_equipo_2
             if (Session["ListaProductos"] == null)
             {
                 Session.Add("ListaProductos", new List<Articulo>()); // si no existe ninguna la creo!
+            }            
+            if (Session["ListaProductosCarrito"] == null)
+            {
+                Session.Add("ListaProductosCarrito", new List<Articulo>()); // si no existe ninguna la creo!
             }
-            var list = (List<Articulo>)Session["ListaProductos"]; //obtiene la lista
-            var ArtGestion = new ArticuloGestion();
-            var Art = ArtGestion.Existencia(IdProd);
-            list.Add(Art); //añade uno nuevo
 
-            Session.Add("ListaProductos", list); // pisa la lista anterior con la nueva que contiene el contenido anterior + el nuevo
+
+            var list = (List<Articulo>)Session["ListaProductos"]; //obtiene la lista
+            var ArtGestion = new ArticuloGestion(); 
+            var Art = ArtGestion.Existencia(IdProd);
+            var listaCarrito = (List<Articulo>)Session["ListaProductosCarrito"]; //obtiene la lista de artículos en el carrito
+            listaCarrito.Add(Art); //añade uno nuevo
+
+            Session.Add("ListaProductosCarrito", listaCarrito); // pisa la lista anterior con la nueva que contiene el contenido anterior + el nuevo
 
             Response.Redirect("Default.Aspx", false);
         }
