@@ -21,13 +21,18 @@
            { //inicio listado cards dentro de la lista de carrito
                foreach (var Art in CarritoList)
                {  %>
-       <div class="card" style="width: 18rem; margin: 10px" id="cardsArticulos">
+       <div class="row"">
+              <div class="col-md-3">
            <% string Img = Negocio.Helper.UrlImgFirst(Art.Id); %>
            <img src="<%: Img %>" class="card-img-top" alt="Imagen Articulo " style="margin-top: 2%" onerror="this.onerror=null;this.src='https://i.ibb.co/bJxT4V0/digital-hive-sin-imagen-1.png';" />
-           <div class="card-body">
+              </div>
+           <div class="col-md-6">
                <h4 class="card-title"><%:Art.Nombre %></h4>
                <p class="card-text"><%:Art.Descripcion %></p>
                <p class="card-text">$ <%:Art.Precio %></p>            
+           </div>
+           <div class="col-md-3 text-right">
+               <h5> Cantidad</h5>
            </div>
        </div>
 
@@ -64,7 +69,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Total: $0</h4>
                         <button class="btn btn-success btn-block border-bottom=none" style="background-color: var(--aquamarine); color: var(--raisin-black);">Pagar</button>
-                        <asp:Button ID="btnVaciar" CssClass="btn btn-danger" runat="server" Text="Vaciar Carrito" />
+                        <asp:Button ID="btnVaciar" CssClass="btn btn-danger" runat="server" Text="Vaciar Carrito" OnClick="btnVaciar_Click1" />
                     </div>
                 </div>
             </div>

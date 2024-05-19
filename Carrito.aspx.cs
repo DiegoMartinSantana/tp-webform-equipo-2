@@ -24,7 +24,12 @@ namespace TPWebForm_equipo_2
             Response.Redirect("Default.aspx", false);
         }
 
-
+        protected void btnVaciar_Click1(object sender, EventArgs e)
+        {
+            CarritoList = new List<Articulo>();
+            Session.Add("ListaProductosCarrito", CarritoList);
+            Response.Redirect("Default.aspx", false);
+        }
     }
 
 
