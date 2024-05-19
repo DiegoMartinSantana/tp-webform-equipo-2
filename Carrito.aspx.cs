@@ -11,9 +11,12 @@ namespace TPWebForm_equipo_2
     public partial class Carrito : System.Web.UI.Page
     {
         public List<Articulo> CarritoList { get; set; }
+        public List<Articulo> ListaOriginal { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             CarritoList = (List<Articulo>)Session["ListaProductosCarrito"];
+            ListaOriginal = (List<Articulo>)Session["ListaProductos"];
             
         }
 
