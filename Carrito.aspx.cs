@@ -17,7 +17,20 @@ namespace TPWebForm_equipo_2
         {
             CarritoList = (List<Articulo>)Session["ListaProductosCarrito"];
             ListaOriginal = (List<Articulo>)Session["ListaProductos"];
-            
+
+            if (!IsPostBack)
+            {
+                // Calcular el total a pagar
+                decimal total = 0;
+                if (CarritoList != null)
+                {
+                    foreach (var art in CarritoList)
+                    {
+                        total += art.Precio;
+                    }
+                }
+                lblTotal.InnerText = $"Total: ${total}";
+            }
         }
 
         protected void btnVaciar_Click(object sender, EventArgs e)
@@ -34,6 +47,5 @@ namespace TPWebForm_equipo_2
             Response.Redirect("Default.aspx", false);
         }
     }
-
-
 }
+
