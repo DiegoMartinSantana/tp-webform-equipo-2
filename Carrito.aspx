@@ -20,7 +20,7 @@
        <% if (CarritoList != null)
            { //inicio listado cards dentro de la lista de carrito
 
-               int cantidadElementos = ListaOriginal.Count; // cuento la cantidad de elementos que tiene la lista original
+               int cantidadElementos = CarritoList.Count; // cuento la cantidad de elementos que tiene la lista original
                int[] vecID = new int[cantidadElementos]; // creo un vector de enteros para acumular cuantos elementos con el mismo id hay
                bool[] VecBooleanoID = new bool[cantidadElementos]; // creo un vector simil al anterior pero booleano para cuando recorra la lista con el foreach mostrar solo una vez cada articulo
                 for (int i = 0; i < cantidadElementos; i++)
