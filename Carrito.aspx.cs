@@ -13,9 +13,19 @@ namespace TPWebForm_equipo_2
         public List<Articulo> CarritoList { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            CarritoList = (List<Articulo>)Session["ListaProductosCarrito"];
             
-            // aca cargamos las cosas de la lista en session !
-            // y rellenamos y creamos labels directamente aca para mostrar los productos
         }
+
+        protected void btnVaciar_Click(object sender, EventArgs e)
+        {
+            CarritoList = new List<Articulo>();
+            Session.Add("ListaProductosCarrito", CarritoList);
+            Response.Redirect("Default.aspx", false);
+        }
+
+
     }
+
+
 }
