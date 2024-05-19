@@ -11,10 +11,20 @@ namespace TPWebForm_equipo_2
 {
     public partial class SiteMaster : MasterPage
     {
+        List<Articulo> cantProdList;
+       
         public int cantProductos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["ListaProductosCarrito"] != null)
+            {
+            cantProdList = (List<Articulo>)Session["ListaProductosCarrito"];
+            cantProductos += cantProdList.Count;
             lblCarrito.Text= cantProductos.ToString();
+            } else
+            {
+                lblCarrito.Text = "0";
+            }
         }
 
         
