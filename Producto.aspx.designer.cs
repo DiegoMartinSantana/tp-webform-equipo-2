@@ -51,6 +51,15 @@ namespace TPWebForm_equipo_2
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl TituloProducto;
 
         /// <summary>
+        /// PrecioProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PrecioProducto;
+
+        /// <summary>
         /// DescripcionProducto control.
         /// </summary>
         /// <remarks>
@@ -76,15 +85,6 @@ namespace TPWebForm_equipo_2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label CategoriaProducto;
-
-        /// <summary>
-        /// PrecioProducto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PrecioProducto;
 
         /// <summary>
         /// BtnAddCarrito control.
