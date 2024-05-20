@@ -17,19 +17,30 @@
                 <%-----------------IMPLANTO FOREACH PARA MOSTRAT LOS PRODUCTOS QUE ESTAN EN LA LISTA DEL CARRITO---------------------------------%>
 <section class=" row mb-3 row-cols-1 text-center" id="cardsArticulosCarrito" style="padding-top: 30px" aria-labelledby="gettingStartedTitle">
     <% if (CarritoList != null)
-       { //inicio listado cards dentro de la lista de carrito
+       { // Inicio listado cards dentro de la lista de carrito
 
            int cantidadElementos = CarritoList.Count; // cuento la cantidad de elementos que tiene la lista original
-           int[] vecID = new int[cantidadElementos]; // creo un vector de enteros para acumular cuantos elementos con el mismo id hay
-           bool[] VecBooleanoID = new bool[cantidadElementos]; // creo un vector simil al anterior pero booleano para cuando recorra la lista con el foreach mostrar solo una vez cada articulo
-           for (int i = 0; i < cantidadElementos; i++)
-           {
-               VecBooleanoID[i] = true;
-           }
-           foreach (var Art in CarritoList)
-           {
-               vecID[Art.Id - 1 < cantidadElementos ? Art.Id - 1 : cantidadElementos - 1]++;
-           }
+
+            // Determino el valor maximo de art.id en CarritoList
+            int maxId =CarritoList.Max(art => art.Id);
+
+            // Creo arreglos con el tamaño del valor maximo de art.id
+            int[] vecID = new int[maxId+1]; // Creo un vector de enteros para acumular cuantos elementos con el mismo id tenemos
+            bool[] VecBooleanoID = new bool[maxId+1]; //Creo un vector similar pero booleano para mostrar cada articulo solo una vez (asi no se repiten en el carrito)
+
+            for (int i = 0; i <= maxId; i++)
+            {
+                VecBooleanoID[i] = true;
+            }
+
+            // Cuento el contador de elementos en el carrito
+            foreach (var Art in CarritoList)
+            {
+                vecID[Art.Id]++;
+            }
+
+            // Muestro el carrito
+
            foreach (var Art in CarritoList)
            {
                if (VecBooleanoID[Art.Id-1] == true)
@@ -48,7 +59,7 @@
                    </div>
                    <div class="col-md-3 text-right">
                        <h5> Cantidad</h5>
-                       <h4> <%:cantidad %></h4>
+                       <h4> <%: vecID[Art.Id] %></h4>
                    </div>
                </div>
                <% VecBooleanoID[Art.Id-1] = false;
