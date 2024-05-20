@@ -44,7 +44,7 @@
                 {  %>
 
 
-        <div class="card" style="width: 18rem; margin: 10px" id="cardsArticulos">
+        <div class="card" style="width: 18rem; margin: 10px" >
             <% string Img = Negocio.Helper.UrlImgFirst(Art.Id); %>
             <img src="<%: Img %>" class="card-img-top" alt="Imagen Articulo " style="margin-top: 2%" onerror="this.onerror=null;this.src='https://i.ibb.co/bJxT4V0/digital-hive-sin-imagen-1.png';" />
             <!-- SI LA URL NO FUNCA,CARGAR OTRA-->

@@ -12,7 +12,7 @@
 
     <div class="container ">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col">
                 <section class=" row mb-3 row-cols-1 text-center" id="cardsArticulosCarrito" style="padding-top: 30px" aria-labelledby="gettingStartedTitle">
 
                     <% if (CarritoList != null)
@@ -20,18 +20,18 @@
                             foreach (var Art in CarritoList)
                             {
                     %>
-                    <div class="row">
+                    <div class="row" style="border:1px solid black; padding:10px; border-radius:30px;margin-top:2%">
                         <div class="col-md-3">
                             <% string Img = Negocio.Helper.UrlImgFirst(Art.Id); %>
                             <img src="<%: Img %>" class="card-img-top" alt="Imagen Articulo " style="margin-top: 2%" onerror="this.onerror=null;this.src='https://i.ibb.co/bJxT4V0/digital-hive-sin-imagen-1.png';" />
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 "  style="padding-top: 4%">
                             <h4 class="card-title"><%:Art.Nombre %></h4>
-                            <p class="card-text"><%:Art.Descripcion %></p>
-                            <p class="card-text">$ <%:Art.Precio %></p>
+                            <h5 style="margin-top:7%" class="card-text"><%:Art.Descripcion %></h5>
+                            <h5 style="margin-top:5%" class="card-text">$ <%:Art.Precio %></h5>
                         </div>
                         <div class="col-md-3 text-right">
-                            <a href="Carrito.aspx?IdElim=<%:Art.Id%>" CssClass="btn btn-danger" >Eliminar</a>
+                            <a href="Carrito.aspx?IdElim=<%:Art.Id%>" style="margin-top:140px" class="btn btn-danger" >Eliminar</a>
                         </div>
                     </div>
                     <%}
@@ -61,8 +61,9 @@
             <%} %>
             <%--------------------TOTAL A PAGAR--------------------%>
 
+            </div>
             <div class="col-md-4">
-                <div class="card">
+                <div class="card" style="margin-top:47px">
                     <div class="card-body">
                         <h4 class="card-title" id="lblTotal" runat="server">Total: $0</h4>
                         <button class="btn btn-success btn-block border-bottom=none" style="background-color: var(--aquamarine); color: var(--raisin-black);">Pagar</button>
@@ -71,7 +72,6 @@
                 </div>
             </div>
 
-        </div>
     </div>
 
     <%--------------------ESTILOS--------------------%>
