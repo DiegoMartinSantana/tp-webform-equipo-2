@@ -45,6 +45,7 @@
                                     <h4 class="card-title"><%:Art.Nombre %></h4>
                                     <p class="card-text"><%:Art.Descripcion %></p>
                                     <p class="card-text">$ <%:Art.Precio %></p>
+                                    <%VecBooleanoID[Art.Id-1] = false;%> 
                                     <%//vecID[Art.Id-1]++;%>
                                 </div>
                                 <div class="col-md-3 text-right">
