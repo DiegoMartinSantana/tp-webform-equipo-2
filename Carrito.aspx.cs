@@ -15,6 +15,18 @@ namespace TPWebForm_equipo_2
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["IdElim"] != null)
+            {
+                int id = int.Parse(Request.QueryString["IdElim"]);
+                CarritoList = (List<Articulo>)Session["ListaProductosCarrito"];
+
+                Articulo art = CarritoList.Find(a => a.Id == id);
+                CarritoList.Remove(art);
+                Session.Add("ListaProductosCarrito", CarritoList);
+
+
+            }
+
             CarritoList = (List<Articulo>)Session["ListaProductosCarrito"];
             ListaOriginal = (List<Articulo>)Session["ListaProductos"];
 
@@ -40,12 +52,7 @@ namespace TPWebForm_equipo_2
             Response.Redirect("Default.aspx", false);
         }
 
-        protected void btnVaciar_Click1(object sender, EventArgs e)
-        {
-            CarritoList = new List<Articulo>();
-            Session.Add("ListaProductosCarrito", CarritoList);
-            Response.Redirect("Default.aspx", false);
-        }
+       
     }
 }
 
